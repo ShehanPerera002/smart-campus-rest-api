@@ -47,9 +47,7 @@ public class DataStore {
         loadDemoData();
     }
 
-    
     // -------ROOM OPERATIONS-------
-    
 
     /**
      * Returns all rooms in the system.
@@ -86,9 +84,7 @@ public class DataStore {
         return rooms.containsKey(id);
     }
 
-    
     // -------SENSOR OPERATIONS-------
-    
 
     /**
      * Returns all sensors.
@@ -118,9 +114,7 @@ public class DataStore {
         return sensors.containsKey(id);
     }
 
-    
     // -------READING OPERATIONS-------
-    
 
     /**
      * Returns readings for a specific sensor.
@@ -137,44 +131,27 @@ public class DataStore {
         getReadingsForSensor(sensorId).add(reading);
     }
 
-    
     // -------DEMO DATA-------
-
 
     /**
      * Loads sample data so the API has initial content.
      * This helps when demonstrating the system.
      */
     private void loadDemoData() {
-
-        // Create sample rooms
+        // Create one sample room
         Room r1 = new Room("LIB-301", "Library Quiet Study", 50);
-        Room r2 = new Room("LAB-101", "Computer Lab A", 30);
-        Room r3 = new Room("HALL-01", "Main Hall", 500);
         saveRoom(r1);
-        saveRoom(r2);
-        saveRoom(r3);
 
-        // Create sample sensors
+        // Create one sample sensor
         Sensor s1 = new Sensor("TEMP-001", "Temperature", "ACTIVE", 21.5, "LIB-301");
-        Sensor s2 = new Sensor("CO2-001",  "CO2",         "ACTIVE", 450.0, "LIB-301");
-        Sensor s3 = new Sensor("TEMP-002", "Temperature", "MAINTENANCE", 0.0, "LAB-101");
-        Sensor s4 = new Sensor("OCC-001",  "Occupancy",   "ACTIVE", 12.0, "LAB-101");
         saveSensor(s1);
-        saveSensor(s2);
-        saveSensor(s3);
-        saveSensor(s4);
 
-        // Link sensors to rooms
+        // Link sensor to room
         r1.getSensorIds().add("TEMP-001");
-        r1.getSensorIds().add("CO2-001");
-        r2.getSensorIds().add("TEMP-002");
-        r2.getSensorIds().add("OCC-001");
 
-        // Add initial readings
+        // Add one initial reading
         addReading("TEMP-001", new SensorReading("READ-001", System.currentTimeMillis() - 60000, 21.5));
-        addReading("CO2-001",  new SensorReading("READ-002", System.currentTimeMillis() - 30000, 450.0));
 
-        logger.info("Demo data has been pre-loaded into the DataStore.");
+        logger.info("Minimal demo data has been pre-loaded into the DataStore.");
     }
 }
