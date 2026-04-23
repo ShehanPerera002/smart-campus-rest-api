@@ -13,7 +13,7 @@
 4. [Setup & Running](#setup--running)
 5. [API Reference](#api-reference)
 6. [curl Examples](#curl-examples)
-7. [Report – Theory Question Answers](#report--theory-question-answers)
+7. [Report – Theory Question Answers](#report-theory-question-answers)
 8. [Error Codes Reference](#error-codes-reference)
 
 ---
@@ -101,7 +101,7 @@ smart-campus-rest-api/
 1. Open the project in NetBeans.
 2. Ensure Maven dependencies are installed.
 3. Locate the `Main.java` file.
-4. Right-click → **Run File** (or press `Shift + F6`).
+4. Right-click → **Run File**.
 
 The server will start using the embedded Grizzly server.
 
@@ -111,11 +111,15 @@ The server will start using the embedded Grizzly server.
 
 #### Build the project
 
+```bash
 mvn clean package
+```
 
 #### Run the application
 
+```bash
 java -jar target/smart-campus-api-uber.jar
+```
 
 
 The API will be available at: **`http://localhost:8080/api/v1`**
@@ -145,27 +149,37 @@ The API will be available at: **`http://localhost:8080/api/v1`**
 
 ### 1. Discovery
 
+```bash
 curl -X GET http://localhost:8080/api/v1
+```
 
 
 ### 2. Add a room
 
+```bash
 curl -X POST http://localhost:8080/api/v1/rooms -H "Content-Type: application/json" -d "{\"id\":\"ROOM-A\",\"name\":\"Meeting Room\",\"capacity\":10}"
+```
 
 
 ### 3. Add a sensor
 
+```bash
 curl -X POST http://localhost:8080/api/v1/sensors -H "Content-Type: application/json" -d "{\"id\":\"TEMP-001\",\"type\":\"Temperature\",\"roomId\":\"ROOM-A\"}"
+```
 
 
 ### 4. Filter sensors
 
+```bash
 curl -X GET "http://localhost:8080/api/v1/sensors?type=Temperature"
+```
 
 
 ### 5. Add a reading
 
+```bash
 curl -X POST http://localhost:8080/api/v1/sensors/TEMP-001/readings -H "Content-Type: application/json" -d "{\"value\":22.5}"
+```
 
 
 ---------
