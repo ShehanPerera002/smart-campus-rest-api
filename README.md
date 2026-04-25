@@ -14,7 +14,7 @@
 4. [Setup & Running](#setup--running)
 5. [API Reference](#api-reference)
 6. [curl Examples](#curl-examples)
-7. [Report – Theory Question Answers](#report-theory-question-answers)
+7. [Report - Theory Question Answers](#report-theory-question-answers)
 8. [Error Codes Reference](#error-codes-reference)
 
 ---
